@@ -1,7 +1,7 @@
 import { WebSocketServer } from 'ws';
 
 const port = 8081;
-const server = new WebSocketServer({ port });
+const wss = new WebSocketServer({ port });
 
 let score = { teamA: 0, teamB: 0 };
 
@@ -24,7 +24,9 @@ wss.on('connection', (ws) => {
 
     ws.on('message', (message) => {
         const msg = JSON.parse(message);
-        if (msg.type === 'slot') {
+        console.log("received msg", msg)
+        if (msg.t === 'slot') {
+            console.log("slot ", msg.team)
             if (msg.team === 'A') slotTeamA = 1;
             if (msg.team === 'B') slotTeamB = 1;
         }

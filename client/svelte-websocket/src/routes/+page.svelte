@@ -1,5 +1,5 @@
 <script>
-  import WebSocketTest from "$lib/components/WebSocketTest.svelte";
+  import ContainerGame from "$lib/features/game/ContainerGame.svelte";
 
 </script>
-<WebSocketTest />
+<ContainerGame />
